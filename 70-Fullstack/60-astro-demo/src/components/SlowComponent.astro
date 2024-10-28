@@ -1,0 +1,16 @@
+---
+interface Props {
+    delay: number;
+}
+const { delay } = Astro.props;
+console.log(`Rendering Slow Component ... (delay: ${delay}ms)`);
+await new Promise(
+  (resolve) => setTimeout(resolve, delay)
+);
+const timestamp = new Date().toLocaleTimeString();
+---
+<div>
+    <h2>Content: {timestamp}</h2>
+    <div>This is static content ...</div>
+
+</div>

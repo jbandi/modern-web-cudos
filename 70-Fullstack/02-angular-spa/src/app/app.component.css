@@ -1,0 +1,12 @@
+nav a {
+  padding: 5px;
+}
+
+#route {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+}

@@ -1,0 +1,101 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="container">
+			<nav>
+				<a href="/">Home</a>
+				<a href="/static">Static</a>
+				<a href="/dynamic">Dynamic</a>
+				<a href="/client">Client Island</a>
+				<a href="/streaming">Streaming</a>
+				<a href="/data">Data</a>
+				<a href="/server">Server Island</a>
+			</nav>
+			<div class="content">
+				<slot />
+			</div>
+			<div class="footer">Footer!</div>
+		</div>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+	}
+	body {
+		text-align: center;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #23262d;
+		width: 100%;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		min-height: 100vh;
+		align-items: center;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 4;
+		max-width: 700px;
+	}
+	.footer {
+		padding: 1rem;
+		background: #23262d;
+		color: white;
+		width: 100%;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
